@@ -1,30 +1,40 @@
-import Button from "./Button";
+import Route from "./components/Route";
+import Sidebar from "./components/Sidebar";
+import AccordianPage from "./Pages/AccordianPage";
+import ButtonPage from "./Pages/ButtonPage";
+import CounterPage from "./Pages/CounterPage";
+import DropdownPage from "./Pages/DropdownPage";
+import ModalPage from "./Pages/ModalPage";
+import TablePage from "./Pages/TablePage";
 
 function App() {
   return (
     <div>
-      <div>
-        <Button danger>Click kr de bhai</Button>
-      </div>
-      <div>
-        <Button warning>Click kr de bhai</Button>
-      </div>
-      <div>
-        <Button rounded outline primary>
-          mat Click kr de bhai
-        </Button>
-      </div>
-      <div>
-        <Button success outline>
-          chl chl Click kr de bhai
-        </Button>
-      </div>
-      <div>
-        <Button secondary primary rounded>
-          jp jpClick kr de bhai
-        </Button>
+      <div className="container mx-auto grid grid-cols-6 gap-5 mt-4">
+        <Sidebar />
+        <div className="col-span-5">
+          <Route path="/acc">
+            <AccordianPage />
+          </Route>
+          <Route path="/drp">
+            <DropdownPage />
+          </Route>
+          <Route path="/btn">
+            <ButtonPage />
+          </Route>
+          <Route path="/modal">
+            <ModalPage />
+          </Route>
+          <Route path="/table">
+            <TablePage />
+          </Route>
+          <Route path="/count">
+            <CounterPage initialCount={10} />
+          </Route>
+        </div>
       </div>
     </div>
   );
 }
+
 export default App;
